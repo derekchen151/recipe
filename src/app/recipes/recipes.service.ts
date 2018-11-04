@@ -58,4 +58,9 @@ export class RecipeService implements OnInit {
     this.recipeLists.splice(index, 1);
     this.recipeChanged.next(this.recipeLists.slice());
   }
+
+  setRecipes(recipes: Recipe[]) {
+    this.recipeLists = recipes;
+    this.recipeChanged.next(this.recipeLists.slice());
+  }
 }

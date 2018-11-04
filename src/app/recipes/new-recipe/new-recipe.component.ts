@@ -61,4 +61,8 @@ export class NewRecipeComponent implements OnInit {
     (this.newRecipeForm.get("ingredients") as FormArray).removeAt(index);
   }
 
+  getControls() {
+    return this.newRecipeForm.get("ingredients");
+  }
+
 }
