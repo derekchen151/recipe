@@ -1,0 +1,73 @@
+<form [formGroup]="newRecipeForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" 
+            name="name" 
+            id="name" 
+            class="form-control"
+            formControlName = "name"
+        >
+    </div>
+    <div class="form-group">
+        <label for="url">Image URL</label>
+        <input type="text" 
+            name="url" 
+            id="url" 
+            class="form-control"
+            formControlName = "url"
+            #imagePath
+        >
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="imagePath.value" style="max-height:200px" class="img-responsive">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea 
+            name="description" 
+            id="description" 
+            rows="5" 
+            class="form-control"
+            formControlName = "description"
+        ></textarea>
+    </div>
+    <div class="form-group" formArrayName="ingredients">
+        <label>Ingredients</label>
+        <div class="row" 
+            *ngFor = "let ingredientControl of getControls(); let i=index"
+            [formGroupName]="i"
+            >
+            <div class="col-xs-8">
+                <input type="text" 
+                    name="iName" 
+                    id="iName" 
+                    class="form-control"
+                    formControlName = "iName"
+                >
+            </div>
+            <div class="col-xs-2">
+                <input type="number" 
+                    name="iAmount" 
+                    id="iAmount" 
+                    class="form-control"
+                    formControlName = "iAmount"
+                >
+            </div>
+            <div class="col-xs-2 btn-toolbar">
+                <button type="button" class="btn btn-danger"
+                    (click)="onAddIngredient()">+</button>
+                <button type="button" class="btn btn-danger"
+                    (click)="onDeleteIngredient(i)">x</button>
+            </div>
+        </div>
+    </div>
+    <div class="btn-toolbar">
+            <button class="btn btn-success"
+                (click) = "onNewRecipe()"    
+            >Save</button>
+            <button class="btn btn-danger">Clear</button>
+    </div>
+
+</form>
