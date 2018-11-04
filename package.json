@@ -20,7 +20,10 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+<<<<<<< HEAD
     "@ngrx/store": "^6.1.2",
+=======
+>>>>>>> 50603f12e23161d4139de1ad9d023a78b338bbda
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.4",
     "firebase": "^4.6.2",
