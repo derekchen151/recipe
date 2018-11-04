@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form #f="ngForm">
+      <div class="row">
+        <div class="col-sm-5 form-group">
+          <label for="name">Name</label>
+          <input type="text" 
+                  name="name" 
+                  id="name" 
+                  class="form-control" 
+                  ngModel
+                  #shoppinglistName="ngModel"
+                  required
+          >
+          <span *ngIf="!shoppinglistName.valid && shoppinglistName.touched" class="help-block">The name is invalid</span>
+        </div>
+        <div class="col-sm-2 form-group">
+          <label for="amount">Amount</label>
+          <input type="number" 
+                  name="amount" 
+                  id="amount" 
+                  class="form-control" 
+                  ngModel 
+                  required
+                  [pattern]="'^[1-9]+[0-9]*$'"
+                  #shoppinglistAmount="ngModel"
+          >
+          <span *ngIf="!shoppinglistAmount.valid && shoppinglistAmount.touched" class="help-block">The amount is invalid</span>       
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs12-12 btn-toolbar">
+            <button class="btn btn-primary" 
+                    type="button" 
+                    (click)="onAddIngredient(f)"
+                    [disabled]="!f.valid"
+              >{{ isEditMode ? "Edit" : "Add" }}</button> 
+            <button class="btn btn-danger" 
+                    type="button"
+                    [disabled]="!isEditMode"
+                    (click)="onDeleteItem(f)">Delete</button>   
+            <button class="btn btn-warning" 
+                    type="button"
+                    (click)="onResetForm(f)">Clear</button>   
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
