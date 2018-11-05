@@ -1,10 +1,10 @@
+import { Ingredient } from "../shared/ingredient.model";
 import { Action } from '@ngrx/store';
-import { Ingredient } from 'src/app/shared/ingredient.model';
 
-export const ADD_NEW_INGREDIENT = 'ADD_NEW_INGREDIENT';
+export const ADD_INGREDIENT = "[SHOPPINGLIST] AddIngredient";
 
 export class AddIngredient implements Action {
-    readonly type = ADD_NEW_INGREDIENT;
+    readonly type = ADD_INGREDIENT;
     payload: Ingredient;
 }
 
