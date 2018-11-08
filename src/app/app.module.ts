@@ -16,7 +16,7 @@ import { ShoppingListReducer } from './reducers/shoppingList.reducer';
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: "recipe-app"}),
     HttpModule,
     ShoppinglistModule,
     AuthModule,
